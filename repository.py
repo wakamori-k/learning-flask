@@ -1,5 +1,4 @@
 from typing import Dict
-from unicodedata import name
 
 from user import User
 
