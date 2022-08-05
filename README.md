@@ -2,13 +2,18 @@
 
 A RESTful API that manages user information consisting of id and name.
 
-## Run
+## Deploy to Heroku
+
+```
+git push heroku main
+```
+
+## Run locally
 
 ```
 pip install -r requirements.txt
 python main.py
 ```
-
 
 ## Requests
 ### Create
