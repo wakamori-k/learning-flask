@@ -1,6 +1,6 @@
-# RESTful API sample with Flask
+# Web API with Flask
 
-A RESTful API that manages user information consisting of id and name.
+An Web API that manages user information consisting of id and name.
 
 ## Deploy to Heroku
 
