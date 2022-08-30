@@ -11,27 +11,31 @@ git push heroku main
 ## Run locally
 
 ```
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
+heroku local
+# or
 python main.py
 ```
 
 ## Requests
 ### Create
 ```
-curl -X POST -H "Content-type: application/json" -d '{"id": 1, "name": "mike"}' http://127.0.0.1:5000/v1/user
+curl -X POST -H "Content-type: application/json" -d '{"id": 1, "name": "mike"}' http://localhost:5000/v1/user
 ```
 
 ### Update
 ```
-curl -X PUT -H "Content-type: application/json" -d '{"id": 1, "name": "ken"}' http://127.0.0.1:5000/v1/user
+curl -X PUT -H "Content-type: application/json" -d '{"id": 1, "name": "ken"}' http://localhost:5000/v1/user
 ```
 
 ### Read
 ```
-curl "http://127.0.0.1:5000/v1/user?id=1"
+curl "http://localhost:5000/v1/user?id=1"
 ```
 
 ### delete
 ```
-curl -X DELETE "http://127.0.0.1:5000/v1/user?id=1"
+curl -X DELETE "http://localhost:5000/v1/user?id=1"
 ```
