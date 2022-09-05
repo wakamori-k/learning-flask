@@ -64,3 +64,8 @@ curl -X DELETE "https://flask-sample-$(whoami).herokuapp.com/v1/user?id=1"
 # local
 curl -X DELETE "http://localhost:5000/v1/user?id=1"
 ```
+
+## Test
+```
+./test.sh
+```
