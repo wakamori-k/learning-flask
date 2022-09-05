@@ -14,6 +14,9 @@ heroku addons:create heroku-postgresql:hobby-dev --app flask-sample-$(whoami)
 # deploy
 git push heroku main
 heroku logs --tail
+
+# stop
+heroku ps:scale web=0
 ```
 
 ## Run locally
