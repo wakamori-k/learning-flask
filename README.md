@@ -16,7 +16,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 heroku local
 # or
-python main.py
+python app.py
 ```
 
 ## Requests
