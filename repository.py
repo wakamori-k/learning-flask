@@ -1,31 +1,39 @@
 from typing import Dict
 
+from database import db
 from user import User
 
 class UserRepository:
-    def __init__(self):
-        self.users: Dict[int, User] = {}
-    
     def create(self, user: User) -> bool:
-        if user.id in self.users:
-            return False
+        exist_user = self.read(id = user.id)
+        if exist_user:
+            return False        
+        
+        db.session.add(user)
+        db.session.commit()
 
-        self.users[user.id] = user
         return True
 
     def read(self, id: int) -> User:
-        return self.users.get(id, None)
+        return db.session.query(User).filter_by(id=id).first()
 
     def update(self, user: User) -> bool:
-        if user.id not in self.users:
+        exist_user = self.read(id = user.id)
+        if exist_user is None:
             return False
         
-        self.users[user.id] = user
+        exist_user.name = user.name
+        db.session.add(exist_user)
+        db.session.commit()        
+
         return True
 
     def delete(self, id: int) -> bool:
-        if id not in self.users:
+        user = self.read(id = id)
+        if user is None:
             return False
+        
+        db.session.delete(user)
+        db.session.commit()
 
-        del self.users[id]
         return True

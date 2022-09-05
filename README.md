@@ -11,6 +11,8 @@ git push heroku main
 ## Run locally
 
 ```
+export DATABASE_URL="postgresql://$(whoami)@localhost:5432/$(whoami)"
+
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt

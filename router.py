@@ -20,7 +20,9 @@ def user():
         if not all(k in request_json for k in required):
             return jsonify({'message': 'missing values'}), 400
         
-        user = User(int(request_json['id']), request_json['name'])
+        user = User()
+        user.id = int(request_json['id'])
+        user.name = str(request_json['name'])
 
         if request.method == 'POST':
             if repository.create(user):
