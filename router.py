@@ -1,3 +1,4 @@
+import os
 from flask import Blueprint
 from flask import request
 from flask import jsonify
@@ -10,7 +11,7 @@ repository = UserRepository()
 
 @router_v1.route('/', methods=['GET'])
 def index():
-    return "This is index page."
+    return os.environ['DATABASE_URL']
 
 @router_v1.route('/user', methods=['POST', 'PUT', 'GET', 'DELETE'])
 def user():
