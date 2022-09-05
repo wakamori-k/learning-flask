@@ -8,7 +8,7 @@ def create_app():
     import router
     app.register_blueprint(router.router_v1)
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL'].replace("postgres:", "postgresql:")
     db.init_app(app)
 
     with app.app_context():
