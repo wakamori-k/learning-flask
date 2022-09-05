@@ -1,6 +1,5 @@
 import os
 from flask import Flask
-from database import db
 
 def create_app():
     app = Flask(__name__)
@@ -9,8 +8,9 @@ def create_app():
     app.register_blueprint(router.router_v1)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL'].replace("postgres://", "postgresql://")
-    db.init_app(app)
 
+    from database import db
+    db.init_app(app)
     with app.app_context():
         db.create_all()
 
